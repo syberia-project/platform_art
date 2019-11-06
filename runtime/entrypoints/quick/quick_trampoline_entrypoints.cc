@@ -2420,7 +2420,11 @@ extern "C" TwoWordReturn artQuickGenericJniTrampoline(Thread* self, ArtMethod** 
   // In the second case, we need to execute the binding and continue with the actual native function
   // pointer.
   DCHECK(nativeCode != nullptr);
-  if (nativeCode == GetJniDlsymLookupStub()) {
+  if (runtime->GetClassLinker()->IsJniDlsymLookupStub(nativeCode)) {
+    // FIXME: This is broken for @FastNative and @CriticalNative as we're still runnable.
+    // Calls from compiled stubs are also broken.
+    // TODO: We could just let the GenericJNI stub call the ArtFindNativeMethod()
+    // rather than calling it explicitly here.
     nativeCode = artFindNativeMethod(self);
 
     if (nativeCode == nullptr) {
