@@ -30,6 +30,7 @@
 #include "jni/jni_internal.h"
 #include "mirror/class-inl.h"
 #include "nativehelper/ScopedUtfChars.h"
+#include "oat.h"
 #include "oat_file.h"
 #include "oat_quick_method_header.h"
 #include "profile/profile_compilation_info.h"
