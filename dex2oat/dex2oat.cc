@@ -1153,8 +1153,6 @@ class Dex2Oat final {
     AssignIfExists(args, M::Watchdog, &parser_options->watch_dog_enabled);
     AssignIfExists(args, M::WatchdogTimeout, &parser_options->watch_dog_timeout_in_ms);
     AssignIfExists(args, M::Threads, &thread_count_);
-    AssignIfExists(args, M::ImageClasses, &image_classes_filename_);
-    AssignIfExists(args, M::ImageClassesZip, &image_classes_zip_filename_);
     AssignIfExists(args, M::CpuSet, &cpu_set_);
     AssignIfExists(args, M::Passes, &passes_to_run_filename_);
     AssignIfExists(args, M::BootImage, &parser_options->boot_image_filename);
