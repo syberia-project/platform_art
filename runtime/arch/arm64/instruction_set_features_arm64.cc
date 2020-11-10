@@ -72,12 +72,14 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromVariant(
       "exynos-m3",
       "kryo",
       "kryo385",
+      "kryo485",
   };
 
   static const char* arm64_variants_with_lse[] = {
       "cortex-a55",
       "cortex-a75",
       "cortex-a76",
+      "kryo385",
       "kryo385",
   };
 
@@ -86,12 +88,14 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromVariant(
       "cortex-a75",
       "cortex-a76",
       "kryo385",
+      "kryo385",
   };
 
   static const char* arm64_variants_with_dotprod[] = {
       "cortex-a55",
       "cortex-a75",
       "cortex-a76",
+      "kryo385",
   };
 
   bool needs_a53_835769_fix = FindVariantInArray(arm64_variants_with_a53_835769_bug,
@@ -131,6 +135,7 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromVariant(
         "exynos-m3",
         "kryo",
         "kryo300",
+        "kryo385",
         "kryo385",
     };
     if (!FindVariantInArray(arm64_known_variants, arraysize(arm64_known_variants), variant)) {
