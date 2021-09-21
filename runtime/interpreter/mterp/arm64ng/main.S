@@ -302,8 +302,9 @@ END \name
 .endm
 
 .macro BRANCH
-    // Update method counter and do a suspend check if the branch is negative.
-    tbnz wINST, #31, 2f
+    // Update method counter and do a suspend check if the branch is negative or zero.
+    cmp wINST, #0
+    b.le 2f
 1:
     add w2, wINST, wINST                // w2<- byte offset
     FETCH_ADVANCE_INST_RB w2            // update xPC, load wINST
